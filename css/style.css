@@ -56,19 +56,17 @@ header {
 main {
     background: #dff2ff;
     position: relative;
-    overflow-x: hidden;
     padding-top: 5rem;
 }
 
 #hero {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     max-width: 100rem;
     min-height: 40rem;
+    margin: 0 auto;
     padding-top: 7rem;
-    padding-right: 6rem;
-    padding-left: 6rem;
-    padding-bottom: 4rem;
 }
 
 .subtitulo {
@@ -138,9 +136,7 @@ main {
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 800px;
-    min-height: 650px;
-    margin-left: 10rem;
+    margin-right: 10rem;
 }
 
 .lata {
@@ -201,7 +197,7 @@ main {
     width: 9rem;
     height: 5rem;
     top: 15%;
-    left: -3%;
+    left: -50%;
 }
 
 .card-elevado span {
@@ -216,7 +212,7 @@ main {
 .card-final {
     width: 11rem;
     text-align: center;
-    left: -6%;
+    left: -58%;
     bottom: 25%;
 }
 
@@ -237,7 +233,7 @@ main {
     align-items: center;
     width: 12rem;
     height: 4rem;
-    right: -8%;
+    right: -62%;
     top: 48%;
 }
 
@@ -250,24 +246,23 @@ main {
 .qualidades-dg {
     width: 100%;
     background-color: #0067ac;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    position: relative;
-    z-index: 10;
+    padding: 1.5rem 0;
 }
 
 .linha-qualidade {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+    margin: 0 auto;
+    gap: 7rem;
 }
 
 .item-qualidade {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     position: relative;
-    padding: 0 2rem;
+    flex: 1;
 }
 
 .item-qualidade::after {
@@ -326,14 +321,15 @@ main {
 }
 
 .item-anos h2 {
+    font-size: 3rem;
     line-height: 1;
 }
 
 .item-anos p {
-    color: white;
-    font-size: 0.8rem;
-    font-weight: 500;
+    color: #90bbf3;
     text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 500;
     letter-spacing: 1px;
 }
 
@@ -342,6 +338,7 @@ main {
     flex-direction: column;
     align-items: center;
     padding-top: 5rem;
+    background-color: var(--white);
 }
 
 .cardapio-titulo {
@@ -377,11 +374,18 @@ main {
     font-weight: 700;
 }
 
+.categoria-alcoolica {
+    align-self: flex-start;
+    margin-left: 6rem;
+    color: var(--primary);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
 .categorias-bebidas {
     display: flex;
     margin-top: 3.5rem;
-    margin-left: 10rem;
-    width: 100%;
+    width: 90%;
     gap: 5rem;
 }
 
@@ -397,30 +401,301 @@ main {
     transition: 0.3s ease;
 }
 
+.carrossel-bebidas {
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-top: 4rem;
+    padding-left: 5rem;
+    padding-bottom: 4rem;
+}
+
+.card-bebida {
+    min-width: 300px;
+    width: 300px;
+    height: 500px;
+    border-radius: 25px;
+    overflow: hidden;
+    background: white;
+    border: 2px solid #cfe4ef;
+}
+
+.topo-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 220px;
+    background: #d5ece2;
+}
+
+.topo-card img {
+    height: 170px;
+    object-fit: contain;
+}
+
+.volume-bebida {
+    position: absolute;
+    left: 15px;
+    bottom: 10px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #2f98e5;
+}
+
+.conteudo-bebida {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.marca-bebida {
+    color: #2f98e5;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: .5rem;
+}
+
+.conteudo-bebida h3 {
+    color: #143f72;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.conteudo-bebida p {
+    color: #6f8fb2;
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+}
+
+.preco-bebida {
+    color: #1174d2;
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.imagem-bebida {
+    height: 240px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #f4f9ff;
+}
+
+.imagem-bebida img {
+    width: 150px;
+    object-fit: contain;
+}
+
+.conteudo-bebida {
+    padding: 1.5rem;
+}
+
+.conteudo-bebida h3 {
+    color: var(--primary-dark);
+    font-size: 1.5rem;
+}
+
+.conteudo-bebida p {
+    color: var(--text-light);
+    margin-top: .5rem;
+}
+
+#sobre-nos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5rem;
+}
+
+.sobrenos-titulos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.titulo-menor-sobrenos {
+    color: var(--primary);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.titulo {
+    color: var(--primary-dark);
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.subtitulo-cardapio {
+    color: var(--text-light);
+    font-size: 1.2rem;
+}
 
 
-@media (max-width: 1200px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        gap: 50px;
-    }
+#sobre-nos {
+    width: 100%;
+    padding: 7rem 4rem;
+}
 
-    .botoes {
-        justify-content: center;
-    }
+.sobrenos-titulo {
+    text-align: center;
+}
 
-    .hero-text h1 {
-        font-size: 55px;
-    }
+.titulo-menor-sobrenos {
+    color: var(--primary);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
 
-    .hero-image {
-        width: 100%;
-    }
+.titulo-sobrenos {
+    font-size: 4rem;
+    color: var(--primary-dark);
+    font-weight: 700;
+    line-height: 1.1;
+}
 
-    .linha-qualidade {
-        flex-wrap: wrap;
-        gap: 1rem;
-        justify-content: center;
-    }
+.titulo-sobrenos span {
+    display: block;
+    color: var(--primary);
+}
+
+.cards-sobrenos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6rem;
+    margin-top: 4rem;
+}
+
+.card-sobrenos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 350px;
+    height: 390px;
+    background: white;
+    border: 1.5px solid #c7e4f7;
+    border-radius: 25px;
+    padding: 2rem;
+}
+
+.icone-sobrenos {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    background: #edf6ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.icone-sobrenos img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.card-sobrenos h3 {
+    color: var(--primary-dark);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.card-sobrenos p {
+    color: var(--text-light);
+    line-height: 1.6;
+    font-family: "Inter", sans-serif;
+    max-width: 160px;
+    text-align: center;
+}
+
+.card-sobrenos.destaque {
+    background: linear-gradient(
+        135deg,
+        #2c89d8,
+        #0f4d8d
+    );
+    border: none;
+}
+
+.card-sobrenos.destaque h3,
+.card-sobrenos.destaque p {
+    color: white;
+}
+
+.card-sobrenos.destaque .icone-sobrenos {
+    background: rgba(255,255,255,.12);
+}
+
+.banner-promocao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    height: 180px;
+    border-radius: 30px;
+    background: linear-gradient(
+        90deg,
+        #247cc8,
+        #114b88
+    );
+    position: relative;
+    overflow: hidden;
+}
+
+.circulo-banner {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,.06);
+}
+
+.circulo-banner.esquerda {
+    width: 220px;
+    height: 220px;
+    left: -30px;
+    top: -20px;
+}
+
+.circulo-banner.direita {
+    width: 180px;
+    height: 180px;
+    right: -20px;
+    top: 0;
+}
+
+.conteudo-banner {
+    text-align: center;
+    z-index: 2;
+}
+
+.conteudo-banner h2 {
+    color: white;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.conteudo-banner p {
+    color: rgba(255,255,255,.75);
+    margin-top: .5rem;
+    font-family: "Inter", sans-serif;
+}
+
+.conteudo-banner span {
+    display: block;
+    margin-top: 1rem;
+    color: rgba(255,255,255,.9);
+    font-size: 1.3rem;
+    font-family: "Inter", sans-serif;
 }
