@@ -12,6 +12,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" type="image/png" href="./img/logo-dg.png">
 </head>
 
 
@@ -24,8 +25,8 @@
         </div>
 
         <nav class="cabecalho">
-            <a href="#">Início</a>
-            <a href="#">Cardápio</a>
+            <a href="#hero">Início</a>
+            <a href="#hero-cardapio">Cardápio</a>
             <a href="#">Sobre nós</a>
             <a href="#">Contato</a>
             <a href="#">Em breve</a>
@@ -37,11 +38,7 @@
     </header>
 
     <main>
-        <div class="circle circle-1"></div>
-        <div class="circle circle-2"></div>
-        <div class="circle circle-3"></div>
-
-        <section class="hero">
+        <section id="hero">
             <div class="hero-text">
                 <div class="subtitulo">
                     ✦ BEBIDAS DE A-Z
@@ -57,39 +54,80 @@
                 <p>As bebidas mais frescas e saborosas da cidade.</p>
                 <p>De todos os fabricantes, direto pra você.</p>
 
-                <div class="buttons">
-                    <a href="#" class="btn-primary">
-                        Ver Cardápio
-                    </a>
-
-                    <a href="#" class="btn-secondary">
-                        Saiba mais
-                    </a>
+                <div class="botoes">
+                    <a href="#" class="btn-primario">Ver Cardápio</a>
+                    <a href="#" class="btn-secundario">Saiba mais</a>
                 </div>
-
             </div>
 
             <div class="hero-image">
+                <div class="circulo circulo-1"></div>
+                <div class="circulo circulo-2"></div>
+                <div class="circulo circulo-3"></div>
 
-                <div class="card card-top">
+                <div class="card card-elevado">
                     <span>Satisfação</span>
-
                     <img src="./img/grafico.png" alt="">
                 </div>
-
                 <img src="./img/lata-imagem.png" class="lata" alt="">
 
-                <div class="card card-bottom">
+                <div class="card card-final">
                     <span>Entregas hoje</span>
                     <h3>Grátis</h3>
                 </div>
 
-                <div class="card card-right">
+                <div class="card card-meio">
                     <h4>Muitos sabores</h4>
                 </div>
 
             </div>
 
+        </section>
+
+        <div class="qualidades-dg">
+            <div class="linha-qualidade">
+
+                <div class="item-qualidade">
+                    <h2>Clientes Satisfeitos</h2>
+                </div>
+
+                <div class="item-qualidade">
+                    <h2>Sabores Exclusivos</h2>
+                </div>
+
+                <div class="item-qualidade item-produto">
+                    <h2>
+                        Produto de
+                        <span>qualidade ★</span>
+                    </h2>
+                </div>
+
+                <div class="item-qualidade item-anos">
+                    <h2>Anos</h2>
+                    <p>no mercado</p>
+                </div>
+
+            </div>
+        </div>
+
+        <section id="hero-cardapio">
+            <div class="cardapio-titulo">
+                <p class="titulo-menor">NOSSOS PRODUTOS</p>
+                <h1 class="titulo">Cardápio em destaque</h1>
+                <p class="subtitulo-cardapio">Bebidas refrescantes para todos os momentos</p>
+            </div>
+
+            <div class="categoria-naoalcolica">
+                <h2>Não alcoólicas</h2>
+            </div>
+
+            <div class="categorias-bebidas">
+                <button class="categoria-btn">Naturais</button>
+                <button class="categoria-btn">Industrializadas</button>
+                <button class="categoria-btn">Quentes</button>
+                <button class="categoria-btn">Funcionais</button>
+                <button class="categoria-btn">Todos</button>
+            </div>
         </section>
 
     </main>
