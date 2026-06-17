@@ -405,17 +405,53 @@ main {
 }
 
 .carrossel-bebidas {
-    width: 100%;
     display: flex;
-    gap: 2rem;
-    overflow-x: auto;
+    overflow-x: hidden;
     scroll-behavior: smooth;
-    padding-top: 4rem;
-    padding-left: 5rem;
-    padding-bottom: 4rem;
+    width: 100%;
+    gap: 2rem;
+    padding: 4rem 2rem;
+}
+
+.wrapper-carrossel {
+    display: flex;
+    align-items: center;
+    max-width: 95%;
+    margin: 0 auto;
+    width: 100%;
+
+}
+
+.carrossel-bebidas::-webkit-scrollbar {
+    display: none;
+}
+
+.carrossel-bebidas {
+    scrollbar-width: none;
+}
+
+.btn-carrossel {
+    color: var(--primary);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid var(--primary);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.btn-carrossel:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
 }
 
 .card-bebida {
+    display: flex;
+    flex-direction: column;
     min-width: 300px;
     width: 300px;
     height: 500px;
@@ -423,6 +459,7 @@ main {
     overflow: hidden;
     background-color: white;
     border: 2px solid #cfe4ef;
+    flex-shrink: 0;
 }
 
 .card-bebida:hover {
@@ -456,15 +493,24 @@ main {
 .conteudo-bebida {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    flex: 1;
     text-align: center;
+}
+
+/* Tirando o overflow, todo o restante deixa o texto limitado em 3 linhas */
+.descricao {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .marca-bebida {
     color: #2f98e5;
     font-size: 1rem;
     font-weight: 700;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
 }
 
 .conteudo-bebida h3 {
@@ -482,19 +528,21 @@ main {
 }
 
 .preco-bebida {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
     width: 100%;
     color: #1174d2;
     font-size: 1.8rem;
     font-weight: 800;
+    margin-top: auto;
 }
 
 .imagem-bebida {
     height: 240px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     background-color: #f4f9ff;
 }
 
@@ -517,7 +565,7 @@ main {
     margin-top: .5rem;
 }
 
-#sobre-nos{
+#sobre-nos {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -631,11 +679,9 @@ main {
 }
 
 .card-sobrenos.destaque {
-    background: linear-gradient(
-        135deg,
-        #2c89d8,
-        #0f4d8d
-    );
+    background: linear-gradient(135deg,
+            #2c89d8,
+            #0f4d8d);
     border: none;
 }
 
@@ -645,7 +691,7 @@ main {
 }
 
 .card-sobrenos.destaque .icone-sobrenos {
-    background-color: rgba(255,255,255,.12);
+    background-color: rgba(255, 255, 255, .12);
 }
 
 .banner-promocao {
@@ -658,11 +704,9 @@ main {
     overflow: hidden;
     border-radius: 35px;
     margin-top: 13rem;
-    background: linear-gradient(
-        90deg,
-        #247cc8,
-        #114b88
-    );
+    background: linear-gradient(90deg,
+            #247cc8,
+            #114b88);
 }
 
 .banner-promocao::before,
@@ -700,7 +744,8 @@ main {
 
 .conteudo-banner p {
     margin-top: .5rem;
-    color: #6f8fb2;;
+    color: #6f8fb2;
+    ;
     font-family: "Inter", sans-serif;
 }
 
@@ -790,11 +835,9 @@ main {
 }
 
 .card-contato.destaque {
-    background: linear-gradient(
-        135deg,
-        #2c89d8,
-        #0f4d8d
-    );
+    background: linear-gradient(135deg,
+            #2c89d8,
+            #0f4d8d);
     border: none;
 }
 
@@ -805,7 +848,7 @@ main {
 }
 
 .card-contato.destaque .icone-contato {
-    background-color: rgba(255,255,255,.12);
+    background-color: rgba(255, 255, 255, .12);
 }
 
 
@@ -891,7 +934,7 @@ main {
     border-radius: 40px;
     position: relative;
     padding: 15px;
-    box-shadow: 0 20px 40px rgba(0,0,0,.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .15);
     margin-right: 20rem;
 }
 
@@ -922,11 +965,9 @@ main {
     align-items: center;
     font-family: "Inter", sans-serif;
     height: 105px;
-    background: linear-gradient(
-        90deg,
-        #36a4e7,
-        #1f78c8
-    );
+    background: linear-gradient(90deg,
+            #36a4e7,
+            #1f78c8);
     color: white;
     border-radius: 20px 20px 0px 0px;
     padding-top: 5px;
@@ -1018,36 +1059,36 @@ main {
 
 
 
-footer{
+footer {
     background-color: #003f7f;
     color: white;
     padding: 50px 0 30px;
     font-family: Arial, sans-serif;
 }
 
-.footer-container{
+.footer-container {
     max-width: 800px;
     margin: 0 auto;
 }
 
-.footer-top{
+.footer-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 40px;
 }
 
-.footer-logo{
+.footer-logo {
     display: flex;
     align-items: center;
     gap: 18px;
 }
 
-.logo{
+.logo {
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    background-color: rgba(255,255,255,.15);
+    background-color: rgba(255, 255, 255, .15);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1055,51 +1096,51 @@ footer{
     font-weight: bold;
 }
 
-.footer-logo h2{
+.footer-logo h2 {
     font-size: 25px;
 }
 
-.footer-logo p{
+.footer-logo p {
     margin-top: 15px;
     color: #b8d0ea;
     font-size: 17px;
 }
 
-.footer-links{
+.footer-links {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
 }
 
-.footer-links a{
+.footer-links a {
     text-decoration: none;
     color: #b8d0ea;
 }
 
-.footer-links .footer-destaque{
+.footer-links .footer-destaque {
     color: white;
     font-weight: bold;
 }
 
-.footer-bottom{
-    border-top: 1px solid rgba(255,255,255,.15);
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, .15);
     padding-top: 30px;
     text-align: center;
 }
 
-.footer-bottom p{
+.footer-bottom p {
     color: #8fb2d1;
     margin-bottom: 15px;
 }
 
-.footer-politica{
+.footer-politica {
     display: flex;
     justify-content: center;
     gap: 10px;
 }
 
-.footer-politica a{
+.footer-politica a {
     color: #8fb2d1;
     text-decoration: none;
 }

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" type="image/png" href="./img/logo-dg.png">
+    <script type="module" src="./js/app.js" defer></script>
 </head>
 
 <body>
@@ -31,9 +32,9 @@
         </nav>
 
         <a href="https://mthenryx.github.io/e-core_front-end_administrador/">
-          <button class="btn-admin">
-              Administrativo
-          </button>
+            <button class="btn-admin">
+                Administrativo
+            </button>
         </a>
     </header>
 
@@ -122,60 +123,50 @@
             </div>
 
             <div class="categorias-bebidas">
-                <button class="categoria-btn">Naturais</button>
-                <button class="categoria-btn">Industrializadas</button>
-                <button class="categoria-btn">Quentes</button>
-                <button class="categoria-btn">Funcionais</button>
-                <button class="categoria-btn">Todos</button>
+                <button class="categoria-btn" data-categoria="natural">Naturais</button>
+                <button class="categoria-btn" data-categoria="industrializada">Industrializadas</button>
+                <button class="categoria-btn" data-categoria="quente">Quentes</button>
+                <button class="categoria-btn" data-categoria="funcional">Funcionais</button>
+                <button class="categoria-btn" data-categoria="todos">Todos</button>
             </div>
 
-            <div class="carrossel-bebidas">
-                <div class="card-bebida">
-                    <div class="topo-card">
-                        <span class="volume-bebida">500ml</span>
-                        <img src="./img/coca-vidro.png" alt="">
-                    </div>
+            <div class="wrapper-carrossel">
 
-                    <div class="conteudo-bebida">
-                        <span class="marca-bebida">Coca-Cola</span>
-                        <h3>Coca-Cola Original</h3>
-                        <p>
-                            Refrigerante gaseificado sabor cola,
-                            refrescante e ideal para qualquer momento.
-                        </p>
-                        <span class="preco-bebida">R$ 4,00</span>
-                    </div>
-                </div>
+                <button class="btn-carrossel btn-esquerda">
+                    ❮
+                </button>
+
+                <div class="carrossel-bebidas" id="nao-alcoolicas"></div>
+
+                <button class="btn-carrossel btn-direita">
+                    ❯
+                </button>
+
             </div>
 
             <div class="categoria-alcoolica">
                 <h2>Bebidas alcoólicas</h2>
             </div>
             <div class="categorias-bebidas">
-                <button class="categoria-btn">Vinhos</button>
-                <button class="categoria-btn">Cervejas</button>
-                <button class="categoria-btn">Sidra</button>
-                <button class="categoria-btn">Hidromel</button>
-                <button class="categoria-btn">Todos</button>
+                <button class="categoria-btn" data-categoria="vinhos">Vinhos</button>
+                <button class="categoria-btn" data-categoria="cervejas">Cervejas</button>
+                <button class="categoria-btn" data-categoria="sidra">Sidra</button>
+                <button class="categoria-btn" data-categoria="hidromel">Hidromel</button>
+                <button class="categoria-btn" data-categoria="todos">Todos</button>
             </div>
 
-            <div class="carrossel-bebidas">
-                <div class="card-bebida">
-                    <div class="topo-card">
-                        <span class="volume-bebida">500ml</span>
-                        <img src="./img/smirnoff-limao.png" alt="">
-                    </div>
+            <div class="wrapper-carrossel">
 
-                    <div class="conteudo-bebida">
-                        <span class="marca-bebida">Smirnoff</span>
-                        <h3>Ice de Limão</h3>
-                        <p>
-                            Bebida alcoólica leve sabor limão, refrescante, levemente doce, gaseificada, ideal para
-                            festas e dias quentes.
-                        </p>
-                        <span class="preco-bebida">R$ 7,90</span>
-                    </div>
-                </div>
+                <button class="btn-carrossel btn-esquerda">
+                    ❮
+                </button>
+
+                <div class="carrossel-bebidas" id="alcoolicas"></div>
+
+                <button class="btn-carrossel btn-direita">
+                    ❯
+                </button>
+
             </div>
         </section>
 
