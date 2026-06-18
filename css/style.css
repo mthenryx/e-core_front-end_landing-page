@@ -500,7 +500,7 @@ main {
 /* Tirando o overflow, todo o restante deixa o texto limitado em 3 linhas */
 .descricao {
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
