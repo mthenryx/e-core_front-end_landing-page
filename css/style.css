@@ -1981,38 +1981,39 @@ footer {
     }
 
     .wrapper-carrossel {
-        max-width: 100%;
-        width: 70%;
-        margin: 0 auto;
-        gap: 0.5rem;
-    }
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    gap: 0.5rem;
+}
 
-    .btn-carrossel {
-        display: none;
-    }
+.btn-carrossel {
+    display: none;
+}
 
-    .carrossel-bebidas {
-        flex: 1;
-        width: 0;
-        overflow-x: scroll;
-        scrollbar-width: none;
-        -webkit-overflow-scrolling: touch;
-        padding: 1.2rem 0;
-        gap: 2rem;
-        scroll-snap-type: x mandatory;
-    }
+.carrossel-bebidas {
+    flex: 1;
+    width: 0;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding: 1.2rem 12% 1.2rem 12%;
+    gap: 1rem;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 12%;
+}
 
-    .carrossel-bebidas::-webkit-scrollbar {
-        display: none;
-    }
+.carrossel-bebidas::-webkit-scrollbar {
+    display: none;
+}
 
-    .card-bebida {
-        min-width: 100%;
-        width: 100%;
-        height: auto;
-        scroll-snap-align: center;
-        flex-shrink: 0;
-    }
+.card-bebida {
+    min-width: 76%;
+    width: 76%;
+    height: auto;
+    scroll-snap-align: center;
+    flex-shrink: 0;
+}
 
     .topo-card {
         height: 200px;
