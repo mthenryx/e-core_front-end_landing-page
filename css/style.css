@@ -404,22 +404,33 @@ main {
     transition: 0.5s;
 }
 
+.categoria-btn.ativo {
+    background-color: #29A6E0;
+    color: white;
+}
+
 .carrossel-bebidas {
     display: flex;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    width: 100%;
+    flex: 0 0 calc((300px * 5) + (2rem * 4));
     gap: 2rem;
-    padding: 4rem 2rem;
+    padding: 4rem 0px;
+}
+
+.card-bebida {
+    transition: transform 0.3s ease;
+}
+
+.card-bebida:hover {
+    transform: translateY(-5px);
 }
 
 .wrapper-carrossel {
     display: flex;
     align-items: center;
-    max-width: 95%;
-    margin: 0 auto;
-    width: 100%;
-
+    justify-content: center;
+    gap: 1.5rem;
 }
 
 .carrossel-bebidas::-webkit-scrollbar {
@@ -500,7 +511,7 @@ main {
 /* Tirando o overflow, todo o restante deixa o texto limitado em 3 linhas */
 .descricao {
     display: -webkit-box;
-    line-clamp: 3;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
