@@ -10,22 +10,6 @@ let bebidasAlcoolicas = []
 let bebidasNaoAlcoolicas = []
 let quantidadeAtual = 0
 
-// Estado dos filtros
-let filtrosAtivos = {
-    'nao-alcoolicas': {
-        categoria: 'todos',
-        marca: 'todos',
-        sabor: 'todos',
-        caracteristica: 'todos'
-    },
-    'alcoolica': {
-        categoria: 'todos',
-        marca: 'todos',
-        sabor: 'todos',
-        caracteristica: 'todos'
-    }
-}
-
 function criarCard(bebida) {
 
     const foto = bebida.foto_embalagem[0]
@@ -87,201 +71,6 @@ function limparContainer(container) {
     }
 }
 
-function extrairValoresUnicos(bebidas, chave, nomeChave) {
-    const valores = new Set()
-    
-    bebidas.forEach(bebida => {
-        if (bebida[chave] && Array.isArray(bebida[chave])) {
-            bebida[chave].forEach(item => {
-                valores.add(item[nomeChave])
-            })
-        }
-    })
-    
-    return Array.from(valores).sort()
-}
-
-function criarFiltrosGenéricos(tipo) {
-    const listaBase = tipo === 'nao-alcoolicas' ? bebidasNaoAlcoolicas : bebidasAlcoolicas
-    
-    if (listaBase.length === 0) return
-
-    // Extrair valores únicos
-    const categorias = extrairValoresUnicos(listaBase, 'categoria', 'nome_categoria')
-    const marcas = extrairValoresUnicos(listaBase, 'marca', 'nome_marca')
-    const sabores = extrairValoresUnicos(listaBase, 'sabor', 'nome_sabor')
-    const caracteristicas = extrairValoresUnicos(listaBase, 'caracteristica', 'nome')
-
-    // Procurar containers de filtros
-    const containerFiltros = document.querySelector(`.filtros-${tipo}`)
-    
-    if (!containerFiltros) {
-        console.warn(`Container de filtros para ${tipo} não encontrado`)
-        return
-    }
-
-    limparContainer(containerFiltros)
-
-    // Criar seção de categorias
-    if (categorias.length > 0) {
-        const secaoCategoria = document.createElement('div')
-        secaoCategoria.classList.add('filtro-secao')
-        
-        const titulo = document.createElement('h4')
-        titulo.textContent = 'Categoria'
-        secaoCategoria.appendChild(titulo)
-
-        const todosBtn = document.createElement('button')
-        todosBtn.classList.add('filtro-opcao', 'ativo')
-        todosBtn.textContent = 'Todos'
-        todosBtn.dataset.tipo = 'categoria'
-        todosBtn.dataset.valor = 'todos'
-        secaoCategoria.appendChild(todosBtn)
-
-        categorias.forEach(categoria => {
-            const btn = document.createElement('button')
-            btn.classList.add('filtro-opcao')
-            btn.textContent = categoria
-            btn.dataset.tipo = 'categoria'
-            btn.dataset.valor = categoria
-            secaoCategoria.appendChild(btn)
-        })
-
-        containerFiltros.appendChild(secaoCategoria)
-    }
-
-    // Criar seção de marcas
-    if (marcas.length > 0) {
-        const secaoMarca = document.createElement('div')
-        secaoMarca.classList.add('filtro-secao')
-        
-        const titulo = document.createElement('h4')
-        titulo.textContent = 'Marca'
-        secaoMarca.appendChild(titulo)
-
-        const todosBtn = document.createElement('button')
-        todosBtn.classList.add('filtro-opcao', 'ativo')
-        todosBtn.textContent = 'Todos'
-        todosBtn.dataset.tipo = 'marca'
-        todosBtn.dataset.valor = 'todos'
-        secaoMarca.appendChild(todosBtn)
-
-        marcas.forEach(marca => {
-            const btn = document.createElement('button')
-            btn.classList.add('filtro-opcao')
-            btn.textContent = marca
-            btn.dataset.tipo = 'marca'
-            btn.dataset.valor = marca
-            secaoMarca.appendChild(btn)
-        })
-
-        containerFiltros.appendChild(secaoMarca)
-    }
-
-    // Criar seção de sabores
-    if (sabores.length > 0) {
-        const secaoSabor = document.createElement('div')
-        secaoSabor.classList.add('filtro-secao')
-        
-        const titulo = document.createElement('h4')
-        titulo.textContent = 'Sabor'
-        secaoSabor.appendChild(titulo)
-
-        const todosBtn = document.createElement('button')
-        todosBtn.classList.add('filtro-opcao', 'ativo')
-        todosBtn.textContent = 'Todos'
-        todosBtn.dataset.tipo = 'sabor'
-        todosBtn.dataset.valor = 'todos'
-        secaoSabor.appendChild(todosBtn)
-
-        sabores.forEach(sabor => {
-            const btn = document.createElement('button')
-            btn.classList.add('filtro-opcao')
-            btn.textContent = sabor
-            btn.dataset.tipo = 'sabor'
-            btn.dataset.valor = sabor
-            secaoSabor.appendChild(btn)
-        })
-
-        containerFiltros.appendChild(secaoSabor)
-    }
-
-    // Criar seção de características
-    if (caracteristicas.length > 0) {
-        const secaoCaracteristica = document.createElement('div')
-        secaoCaracteristica.classList.add('filtro-secao')
-        
-        const titulo = document.createElement('h4')
-        titulo.textContent = 'Características'
-        secaoCaracteristica.appendChild(titulo)
-
-        const todosBtn = document.createElement('button')
-        todosBtn.classList.add('filtro-opcao', 'ativo')
-        todosBtn.textContent = 'Todos'
-        todosBtn.dataset.tipo = 'caracteristica'
-        todosBtn.dataset.valor = 'todos'
-        secaoCaracteristica.appendChild(todosBtn)
-
-        caracteristicas.forEach(caracteristica => {
-            const btn = document.createElement('button')
-            btn.classList.add('filtro-opcao')
-            btn.textContent = caracteristica
-            btn.dataset.tipo = 'caracteristica'
-            btn.dataset.valor = caracteristica
-            secaoCaracteristica.appendChild(btn)
-        })
-
-        containerFiltros.appendChild(secaoCaracteristica)
-    }
-}
-
-function aplicarFiltrosGenéricos(tipo) {
-    const listaBase = tipo === 'nao-alcoolicas' ? bebidasNaoAlcoolicas : bebidasAlcoolicas
-    const filtros = filtrosAtivos[tipo]
-
-    let resultado = listaBase.filter(bebida => {
-        // Filtro de categoria
-        if (filtros.categoria !== 'todos') {
-            const temCategoria = bebida.categoria.some(
-                item => item.nome_categoria === filtros.categoria
-            )
-            if (!temCategoria) return false
-        }
-
-        // Filtro de marca
-        if (filtros.marca !== 'todos') {
-            const temMarca = bebida.marca.some(
-                item => item.nome_marca === filtros.marca
-            )
-            if (!temMarca) return false
-        }
-
-        // Filtro de sabor
-        if (filtros.sabor !== 'todos') {
-            const temSabor = bebida.sabor.some(
-                item => item.nome_sabor === filtros.sabor
-            )
-            if (!temSabor) return false
-        }
-
-        // Filtro de característica
-        if (filtros.caracteristica !== 'todos') {
-            const temCaracteristica = bebida.caracteristica.some(
-                item => item.nome === filtros.caracteristica
-            )
-            if (!temCaracteristica) return false
-        }
-
-        return true
-    })
-
-    if (tipo === 'nao-alcoolicas') {
-        renderizarNaoAlcoolicas(resultado)
-    } else {
-        renderizarAlcoolicas(resultado)
-    }
-}
-
 async function atualizarBebidas() {
     try {
         const dados = await getBebidas('bebida')
@@ -292,10 +81,7 @@ async function atualizarBebidas() {
         )
         renderizarNaoAlcoolicas(bebidasNaoAlcoolicas)
         renderizarAlcoolicas(bebidasAlcoolicas)
-        criarFiltrosGenéricos('nao-alcoolicas')
-        criarFiltrosGenéricos('alcoolica')
     } catch (error) {
-        console.error('Erro ao atualizar bebidas:', error)
     }
 }
 
@@ -309,7 +95,6 @@ async function verificarNovasBebidas() {
         }
 
     } catch (error) {
-        console.error('Erro ao verificar novas bebidas:', error)
     }
 }
 
@@ -325,14 +110,12 @@ async function iniciar() {
         await atualizarBebidas()
         configurarCarrosseis()
         configurarCategorias()
-        configurarFiltrosGenéricos()
 
         document.querySelectorAll('[data-categoria="todos"]').forEach(botao => botao.classList.add('ativo'))
 
         setInterval(verificarNovasBebidas, 3000)
 
     } catch (error) {
-        console.error('Erro ao iniciar:', error)
     }
 
 }
@@ -420,39 +203,6 @@ function configurarCategorias() {
                 )
             })
         })
-    })
-}
-
-function configurarFiltrosGenéricos() {
-    document.addEventListener('click', (event) => {
-        const botao = event.target.closest('.filtro-opcao')
-        
-        if (!botao) return
-
-        const tipo = botao.dataset.tipo
-        const valor = botao.dataset.valor
-        const secao = botao.closest('.filtro-secao')
-        const container = secao.closest('[class*="filtros-"]')
-        
-        // Determinar o tipo de bebida (nao-alcoolicas ou alcoolica)
-        let tipoBebidasKey = 'nao-alcoolicas'
-        if (container.classList.contains('filtros-alcoolica')) {
-            tipoBebidasKey = 'alcoolica'
-        }
-
-        // Remover classe ativa de outros botões da mesma seção
-        secao.querySelectorAll('.filtro-opcao').forEach(btn => {
-            btn.classList.remove('ativo')
-        })
-
-        // Adicionar classe ativa ao botão clicado
-        botao.classList.add('ativo')
-
-        // Atualizar filtros ativos
-        filtrosAtivos[tipoBebidasKey][tipo] = valor
-
-        // Aplicar filtros
-        aplicarFiltrosGenéricos(tipoBebidasKey)
     })
 }
 
